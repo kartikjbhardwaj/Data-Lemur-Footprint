@@ -1,0 +1,15 @@
+Link-https://datalemur.com/questions/updated-status
+--My Solution
+SELECT COALESCE(adv.user_id,dp.user_id),
+(
+  CASE
+    WHEN adv.user_id ISNULL THEN 'NEW'
+    WHEN dp.paid ISNULL THEN 'CHURN'
+    WHEN adv.status='CHURN' THEN 'RESURRECT'
+    ELSE 'EXISTING'
+  END
+) as new_status
+FROM 
+  advertiser as adv FULL JOIN daily_pay as dp
+ON adv.user_id=dp.user_id
+ORDER BY 1;
