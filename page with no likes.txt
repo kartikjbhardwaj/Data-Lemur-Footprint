@@ -1,0 +1,8 @@
+link-https://datalemur.com/questions/sql-page-with-no-likes
+
+##My Solution
+SELECT p.page_id
+FROM pages as p LEFT JOIN page_likes as l
+on p.page_id=l.page_id
+WHERE l.user_id ISNULL
+ORDER BY 1;
