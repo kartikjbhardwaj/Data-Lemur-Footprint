@@ -1,0 +1,9 @@
+--problem link- https://datalemur.com/questions/second-day-confirmation
+
+-- my solution
+
+SELECT DISTINCT user_id 
+FROM emails AS e JOIN texts as t
+on e.email_id = t.email_id
+WHERE e.signup_date + INTERVAL '1 days' = t.action_date
+AND t.signup_action='Confirmed'
