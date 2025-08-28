@@ -1,5 +1,5 @@
 Link-https://datalemur.com/questions/updated-status
---My Solution
+--My Solutionn
 SELECT COALESCE(adv.user_id,dp.user_id),
 (
   CASE
